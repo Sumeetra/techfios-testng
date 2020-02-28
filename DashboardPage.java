@@ -15,21 +15,25 @@ public class DashboardPage extends BasePage {
 	}
 
 	// Element Library
-	@FindBy(how = How.XPATH, using = "//h2[contains(text(),'Dashboard')]")
-	WebElement PageTitle;
-	@FindBy(how = How.LINK_TEXT, using = "Add Deposit")
-	WebElement AddDepositButton;
+	@FindBy(how = How.XPATH, using = "//span[text() = 'CRM']")
+	WebElement CRM;
+	@FindBy(how = How.LINK_TEXT, using = "Add Contact")
+	WebElement AddContactButton;
 
 	// Methods to interact with the elements
 	public void waitForPage() {
-	waitForElement(PageTitle, driver);
+	waitForElement(CRM, driver);
+	}
+	
+	public void clickOnCRMButton() {
+	CRM.click();
+	}
+	
+	public void clickOnAddContactButton() {
+	AddContactButton.click();
 	}
 
-	public void clickOnAddDepositButton() {
-	AddDepositButton.click();
-	}
-
-	public boolean isDashboardDisplayed() {
+	public boolean isAddContactPageDisplayed() {
 	try {
 	waitForPage();
 	return true;
